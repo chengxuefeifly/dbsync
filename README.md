@@ -3,6 +3,9 @@ I developed a real-time synchronization tool for SQL Server databases, which ope
 
 
 二、产品使用
+
+
+
 2.1 日志分析模块
 设置环境变量DBSYNC_HOME,需要用cmd的管理模式,支持结构迁移、全量迁移、增量迁移【INSERT、UPDATE、DELETE】，不支持DDL
 
@@ -85,4 +88,10 @@ TARGET.Encrypt="no"
 TARGET.TrustServerCertificate="yes"
 TARGET.IP="127.0.0.1"
 
+
+4、注意事项
+
+启动cmd的时候,需要用管理员权限,如下所示:
+
+<img width="1610" height="513" alt="image" src="https://github.com/user-attachments/assets/931f960b-a6fa-4beb-9a81-58895256764e" />
 
