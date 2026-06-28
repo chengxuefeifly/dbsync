@@ -2,38 +2,39 @@
 I developed a real-time synchronization tool for SQL Server databases, which operates based on the binary parsing of underlying transaction logs.
 
 
-二、产品使用
+ 
+二、Product Usage Instructions
 
-
-
-2.1 日志分析模块
-设置环境变量DBSYNC_HOME,需要用cmd的管理模式,支持结构迁移、全量迁移、增量迁移【INSERT、UPDATE、DELETE】，不支持DDL
+2.1 Log Analysis Module
+Set the environment variable DBSYNC_HOME with CMD running under administrator privileges. It supports schema migration, full data migration and incremental migration (INSERT, UPDATE, DELETE), while DDL operations are not supported.
 
 <img width="3205" height="645" alt="image" src="https://github.com/user-attachments/assets/c5f06d94-0d25-4e19-aa21-6b8bfcf5be13" />
 
-2.2 落地文件发送模块
-读取源端db.conf中的目标的IP地址,进行文件发送,借助端口32000
+2.2 Local File Sending Module
+Read the target IP address configured in the source db.conf file and send files via port 32000.
+
 <img width="2840" height="1265" alt="image" src="https://github.com/user-attachments/assets/eeecaaa3-ac1c-4cd8-894a-b4aea2d4bbf2" />
 
-2.3 文件接收模块
-启用IP地址,进行文件接收,端口32000
+2.3 File Receiving Module
+Enable the specified IP address to receive files on port 32000.
+
 <img width="3263" height="1215" alt="image" src="https://github.com/user-attachments/assets/bb61fdb5-3078-4361-9bd9-c3d118a97c6a" />
 
 
-2.4 数据装载模块
-读取db.conf目标端数据库信息,然后将相关的表装进去
+2.4 Data Loading Module
+Reads the target database information from db.conf, then loads the corresponding tables.
 <img width="2870" height="1262" alt="image" src="https://github.com/user-attachments/assets/fdcc2569-f9f9-44b3-87da-80900594309f" />
 
 
-三、配置文件说明
-源端目录架构
+三. Configuration File Description
+Source Directory Structure
 bin、config、spool、cache
 
-目标端目录架构
+Target Directory Structure
 bin、config、spool、cache
 
 
-3.1 源端配置
+3.1 Source Side Configuration
 
 
 3.1.1 db.conf
@@ -62,7 +63,9 @@ TARGET.IP="127.0.0.1"
 
 3.1.2 dbsync.conf
  
-#日志分析模式0、本地(增量解析的效率高)     1、远程
+# Log Analysis Mode
+#0. Local (High efficiency for incremental parsing)
+#1. Remote
 
 Log_Analysis_Pattern="0"
 DBSYNC_HOME=""
@@ -71,7 +74,7 @@ exp_sync_sql=SELECT  TABLE_CATALOG,TABLE_SCHEMA,TABLE_NAME FROM INFORMATION_SCHE
 
 
 
-3.2 目标端配置
+3.2 Target Side Configuration
 
 
 3.2.1  db.conf
@@ -89,9 +92,11 @@ TARGET.TrustServerCertificate="yes"
 TARGET.IP="127.0.0.1"
 
 
-四、注意事项
+## IV. Precautions
 
-启动cmd的时候,需要用管理员权限,如下所示:
+When launching CMD, you must run it with administrator privileges, as shown below:
 
 <img width="1610" height="513" alt="image" src="https://github.com/user-attachments/assets/931f960b-a6fa-4beb-9a81-58895256764e" />
 
+
+VI. If you have any questions, you can email me at 617889031@qq.com, join our QQ group 164804617, or leave a message here.
