@@ -31,9 +31,11 @@ bin、config、spool、cache
 
 
 3.1 源端配置
-3.1.1 db.conf
-[SOURCE]
 
+
+3.1.1 db.conf
+
+[SOURCE]
 SOURCE.DRIVER="{ODBC Driver 18 for SQL Server}"
 SOURCE.SERVER="localhost\SQLEXPRESS"
 SOURCE.DATABASE="source"
@@ -53,21 +55,25 @@ TARGET.Encrypt="no"
 TARGET.TrustServerCertificate="yes"
 TARGET.IP="127.0.0.1"
 
+
+
 3.1.2 dbsync.conf
  
 #日志分析模式0、本地(增量解析的效率高)     1、远程
 
 Log_Analysis_Pattern="0"
-
 DBSYNC_HOME=""
-
 #exp_sync_sql=SELECT  TABLE_CATALOG,TABLE_SCHEMA,TABLE_NAME FROM INFORMATION_SCHEMA.TABLES where TABLE_NAME='Table_97'
-
 exp_sync_sql=SELECT  TABLE_CATALOG,TABLE_SCHEMA,TABLE_NAME FROM INFORMATION_SCHEMA.TABLES where TABLE_CATALOG='source'  
 
 
+
 3.2 目标端配置
+
+
 3.2.1  db.conf
+
+
 
 [TARGET]
 TARGET.DRIVER="{ODBC Driver 18 for SQL Server}"
