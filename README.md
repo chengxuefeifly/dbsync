@@ -89,7 +89,7 @@ TARGET.TrustServerCertificate="yes"
 TARGET.IP="127.0.0.1"
 
 
-4、注意事项
+四、注意事项
 
 启动cmd的时候,需要用管理员权限,如下所示:
 
